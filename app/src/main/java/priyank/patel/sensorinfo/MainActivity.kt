@@ -1,15 +1,14 @@
-package priyank.patel.supportedsensors
+package priyank.patel.sensorinfo
 
 import android.content.Context
 import android.hardware.Sensor
-import android.support.v7.app.AppCompatActivity
+import android.hardware.SensorManager
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_main.*
-import android.hardware.SensorManager
-import android.util.Log
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,16 +36,9 @@ class MainActivity : AppCompatActivity() {
         //getting recyclerview from xml
         //val recyclerView = findViewById(R.id.sensor_recyclerview) as RecyclerView
         sensor_recyclerview.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        sensor_recyclerview.adapter = SensorAdapter(sensors, mSensorManager!!)
+        sensor_recyclerview.adapter = SensorAdapter(this, sensors, mSensorManager!!)
 
     }
-
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-
 
     // Adds animals to the empty animals ArrayList
     fun addSensors() {

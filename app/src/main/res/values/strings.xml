@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Sensor Info</string>
+    <string name="sensor_list">Sensor List</string>
+    <string name="sensor_detail">Sensor Detail</string>
 </resources>
