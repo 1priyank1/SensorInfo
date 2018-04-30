@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     // Adds animals to the empty animals ArrayList
     fun addSensors() {
+        sensors.add(SensorData("Sensor", Sensor.TYPE_ALL))
         sensors.add(SensorData("ACCELEROMETER", Sensor.TYPE_ACCELEROMETER))
         sensors.add(SensorData("AMBIENT_TEMPERATURE", Sensor.TYPE_AMBIENT_TEMPERATURE))
         sensors.add(SensorData("GRAVITY", Sensor.TYPE_GRAVITY))
@@ -53,7 +54,8 @@ class MainActivity : AppCompatActivity() {
         sensors.add(SensorData("PROXIMITY", Sensor.TYPE_PROXIMITY))
         sensors.add(SensorData("RELATIVE_HUMIDITY", Sensor.TYPE_RELATIVE_HUMIDITY))
         sensors.add(SensorData("ROTATION_VECTOR", Sensor.TYPE_ROTATION_VECTOR))
-        sensors.add(SensorData("ORIENTATION", Sensor.TYPE_ORIENTATION))
-        sensors.add(SensorData("TEMPERATURE", Sensor.TYPE_TEMPERATURE))
+        //sensors.add(SensorData("ORIENTATION", Sensor.TYPE_ORIENTATION))
+        //sensors.add(SensorData("TEMPERATURE", Sensor.TYPE_TEMPERATURE))
     }
+
 }

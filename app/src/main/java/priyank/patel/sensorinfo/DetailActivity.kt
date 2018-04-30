@@ -6,7 +6,9 @@ import android.hardware.SensorManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.activity_detail.view.*
 
 
 class DetailActivity : AppCompatActivity() {
@@ -27,16 +29,22 @@ class DetailActivity : AppCompatActivity() {
             val sensors = mSensorManager?.getSensorList(sensorType) as List<Sensor>
             Log.d(TAG, "sensor size : " + sensors.size)
             for (i in sensors.indices) {
-                Log.d(TAG, "sensor name : " + sensors[i].name)
-                Log.d(TAG, "sensor type : " + sensors[i].type)
-                Log.d(TAG, "sensor vendor : " + sensors[i].vendor)
-                Log.d(TAG, "sensor version : " + sensors[i].version)
-                Log.d(TAG, "sensor power : " + sensors[i].power)
+                Log.d(TAG, "sensor name : " + sensors[i])
 
                 name_text.text = "Name : " + sensors[i].name
                 type_text.text = "Type : " + sensors[i].type
+                type_text.visibility = View.GONE
                 vendor_text.text = "Vendor : " +  sensors[i].vendor
                 version_text.text = "Version : " + sensors[i].version
+                power_text.text = "Power : " + sensors[i].power + " mA"
+                max_range_text.text = "Maximum range : " + sensors[i].maximumRange
+                min_delay_text.text = "Minimum Delay : " + sensors[i].minDelay + " ms"
+                if (android.os.Build.VERSION.SDK_INT >= 21) {
+                    max_delay_text.visibility = View.VISIBLE
+                    max_delay_text.text = "Maximum Delay : " + sensors[i].maxDelay + " ms"
+                    reporting_mode_text.visibility = View.VISIBLE
+                    reporting_mode_text.text = "Maximum Range : " + sensors[i].reportingMode
+                }
             }
         }
 
