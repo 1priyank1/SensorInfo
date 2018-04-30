@@ -31,23 +31,37 @@ class DetailActivity : AppCompatActivity() {
             for (i in sensors.indices) {
                 Log.d(TAG, "sensor name : " + sensors[i])
 
-                name_text.text = "Name : " + sensors[i].name
-                type_text.text = "Type : " + sensors[i].type
+                name_text.text = "Name: " + sensors[i].name
+                type_text.text = "Type: " + sensors[i].type
                 type_text.visibility = View.GONE
-                vendor_text.text = "Vendor : " +  sensors[i].vendor
-                version_text.text = "Version : " + sensors[i].version
-                power_text.text = "Power : " + sensors[i].power + " mA"
-                max_range_text.text = "Maximum range : " + sensors[i].maximumRange
-                min_delay_text.text = "Minimum Delay : " + sensors[i].minDelay + " ms"
+                vendor_text.text = "Vendor: " +  sensors[i].vendor
+                version_text.text = "Version: " + sensors[i].version
+                power_text.text = "Power: " + sensors[i].power + " mA"
+                max_range_text.text = "Maximum range: " + sensors[i].maximumRange
+                min_delay_text.text = "Minimum Delay: " + sensors[i].minDelay + " ms"
                 if (android.os.Build.VERSION.SDK_INT >= 21) {
                     max_delay_text.visibility = View.VISIBLE
-                    max_delay_text.text = "Maximum Delay : " + sensors[i].maxDelay + " ms"
+                    max_delay_text.text = "Maximum Delay: " + sensors[i].maxDelay + " ms"
                     reporting_mode_text.visibility = View.VISIBLE
-                    reporting_mode_text.text = "Maximum Range : " + sensors[i].reportingMode
+                    reporting_mode_text.text = "Reporting Mode: " + sensorReportingModeToString(sensors[i].reportingMode)
                 }
             }
         }
+    }
 
+    fun sensorReportingModeToString(reportingMode: Int) : String {
+        when (reportingMode) {
+            Sensor.REPORTING_MODE_CONTINUOUS
+            -> return "Continuous"
+            Sensor.REPORTING_MODE_ONE_SHOT
+            -> return "One-shot"
+            Sensor.REPORTING_MODE_ON_CHANGE
+            -> return "On-change"
+            Sensor.REPORTING_MODE_SPECIAL_TRIGGER
+            -> return "Special"
+            else
+            -> return "Unknown"
+        }
     }
 
 

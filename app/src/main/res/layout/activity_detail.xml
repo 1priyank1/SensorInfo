@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp"
-    tools:context=".MainActivity">
-
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/name_text"
@@ -48,8 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:textSize="20sp"
-        android:visibility="gone"/>
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/min_delay_text"
@@ -75,3 +75,5 @@
         android:visibility="gone"/>
 
 </LinearLayout>
+
+</ScrollView>
